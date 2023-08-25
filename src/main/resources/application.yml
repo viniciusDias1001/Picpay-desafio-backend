@@ -3,3 +3,7 @@ spring:
     active:
       - test
 
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:pedro/anderson}
