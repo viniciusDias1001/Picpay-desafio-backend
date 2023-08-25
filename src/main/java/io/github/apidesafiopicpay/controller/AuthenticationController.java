@@ -39,7 +39,7 @@ public class AuthenticationController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO authenticationDTO){
-        var usernamePassword = new UsernamePasswordAuthenticationToken(authenticationDTO.getEmail(), authenticationDTO.getPassword());
+        var usernamePassword = new UsernamePasswordAuthenticationToken(authenticationDTO.email(), authenticationDTO.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
         var token = tokenService.generateToken((User) auth.getPrincipal());
@@ -50,8 +50,8 @@ public class AuthenticationController {
    @ResponseStatus(HttpStatus.CREATED)
   public User register(@RequestBody @Valid RegisterDTO registerDTO){
             if (registerDTO == null) return (User) ResponseEntity.badRequest();
-         String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.getPassword());
-          User newUser = new User(registerDTO.getNomeCompleto(), registerDTO.getEmail(),encryptedPassword, registerDTO.getDocument());
+         String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.password());
+          User newUser = new User(registerDTO.nomeCompleto(), registerDTO.email(),encryptedPassword, registerDTO.document());
           userService.save(newUser);
           return newUser;
    }

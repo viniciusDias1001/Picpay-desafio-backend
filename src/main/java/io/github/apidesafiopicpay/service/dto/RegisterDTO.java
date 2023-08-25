@@ -6,5 +6,5 @@ public record RegisterDTO (
     String nomeCompleto,
     String email,
     String password,
-    Document documents){
+    Document document){
 }
