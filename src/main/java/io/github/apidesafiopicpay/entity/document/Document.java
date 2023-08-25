@@ -1,5 +1,6 @@
 package io.github.apidesafiopicpay.entity.document;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
@@ -17,7 +18,7 @@ public class Document {
     @Column(name = "DOCUMENT_VALUE")
     String value;
 
-    public Document(DocumentEnum document, String value){
+    public Document(@JsonProperty("document")DocumentEnum document,@JsonProperty("value") String value){
         this.document = document;
         this.value = value;
     }
