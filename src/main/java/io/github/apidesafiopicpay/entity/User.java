@@ -23,6 +23,7 @@ public class User implements UserDetails, Serializable {
     private Long id;
     @Email
     @NotBlank(message = "Email can't be null/blank")
+    @Column(unique = true)
     private String email;
     @NotBlank(message = "Nome Completo can't be null/blank")
     private String nomeCompleto;
