@@ -32,20 +32,18 @@ public class User implements UserDetails, Serializable {
     @NotBlank(message = "password can't be null/blank")
     private String password;
     @NotBlank(message = "Document can't be null/blank")
-    @CPF
-    @CNPJ
     private String document;
 
 
     public User() {
     }
 
-    public User(Long id, String email, String nomeCompleto, String password, Document document) {
+    public User( String nomeCompleto, String email, String password, String document) {
         this.id = id;
         this.email = email;
         this.nomeCompleto = nomeCompleto;
         this.password = password;
-        this.document = document.getValue();
+        this.document = document;
     }
 
     @Override

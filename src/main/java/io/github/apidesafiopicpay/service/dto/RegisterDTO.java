@@ -19,11 +19,11 @@ public class RegisterDTO {
     public RegisterDTO() {
     }
 
-    public String getLogin() {
+    public String getNomeCompleto() {
         return nomeCompleto;
     }
 
-    public void setLogin(String nomeCompleto) {
+    public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
     }
 
