@@ -19,6 +19,7 @@ import java.util.List;
 
 
 @Entity()
+@Table(name = "USERS")
 public class User implements UserDetails, Serializable {
 
     @Id
