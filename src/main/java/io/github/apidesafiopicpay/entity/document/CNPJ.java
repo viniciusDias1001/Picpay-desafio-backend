@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Embeddable
 public class CNPJ implements Document{
     private String value;
 

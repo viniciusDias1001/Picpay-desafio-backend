@@ -32,9 +32,6 @@ public class User implements UserDetails, Serializable {
     private String nomeCompleto;
     @NotBlank(message = "password can't be null/blank")
     private String password;
-    @NotBlank(message = "Document can't be null/blank")
-    @CPF
-    @CNPJ
     @Embedded
     private Document document;
 
