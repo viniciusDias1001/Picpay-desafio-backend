@@ -1,16 +1,19 @@
 package io.github.apidesafiopicpay.entity.document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.github.apidesafiopicpay.enums.DocumentEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Embeddable
 public class Document {
 
     @Enumerated(EnumType.STRING)
+    @NotNull
     @Column(name = "DOCUMENT_TYPE")
     DocumentEnum document;
 

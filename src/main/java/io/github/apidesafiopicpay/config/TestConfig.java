@@ -1,8 +1,5 @@
 package io.github.apidesafiopicpay.config;
 
-import io.github.apidesafiopicpay.entity.User;
-import io.github.apidesafiopicpay.entity.document.Document;
-import io.github.apidesafiopicpay.entity.document.DocumentEnum;
 import io.github.apidesafiopicpay.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
