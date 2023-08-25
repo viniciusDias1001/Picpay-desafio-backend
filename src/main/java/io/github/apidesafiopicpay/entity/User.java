@@ -36,7 +36,7 @@ public class User implements UserDetails, Serializable {
     @NotBlank(message = "Document can't be null/blank")
     @CPF
     @CNPJ
-    private Document document;
+    private String document;
 
 
     public User() {
@@ -47,7 +47,7 @@ public class User implements UserDetails, Serializable {
         this.email = email;
         this.nomeCompleto = nomeCompleto;
         this.password = password;
-        this.document = document;
+        this.document = document.getValue();
     }
 
     @Override
@@ -113,11 +113,11 @@ public class User implements UserDetails, Serializable {
         this.password = password;
     }
 
-    public Document getDocument() {
+    public String getDocument() {
         return document;
     }
 
-    public void setDocument(Document document) {
+    public void setDocument(String document) {
         this.document = document;
     }
 }
