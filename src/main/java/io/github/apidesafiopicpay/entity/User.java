@@ -1,7 +1,6 @@
 package io.github.apidesafiopicpay.entity;
 
-import io.github.apidesafiopicpay.enums.Document;
-import jakarta.persistence.Column;
+import io.github.apidesafiopicpay.entity.document.Document;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
