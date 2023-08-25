@@ -32,13 +32,13 @@ public class User implements UserDetails, Serializable {
     @NotBlank(message = "password can't be null/blank")
     private String password;
     @NotBlank(message = "Document can't be null/blank")
-    private String document;
+    private Document document;
 
 
     public User() {
     }
 
-    public User( String nomeCompleto, String email, String password, String document) {
+    public User( String nomeCompleto, String email, String password, Document document) {
         this.id = id;
         this.email = email;
         this.nomeCompleto = nomeCompleto;
@@ -109,11 +109,11 @@ public class User implements UserDetails, Serializable {
         this.password = password;
     }
 
-    public String getDocument() {
+    public Document getDocument() {
         return document;
     }
 
-    public void setDocument(String document) {
+    public void setDocument(Document document) {
         this.document = document;
     }
 }

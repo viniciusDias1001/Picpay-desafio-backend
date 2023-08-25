@@ -1,16 +1,17 @@
 package io.github.apidesafiopicpay.entity.document;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import jakarta.persistence.Embeddable;
 
-
+@Embeddable
 public class CPF implements Document{
-    private String value;
 
+    private String value;
 
     public CPF(String value) {
         this.value = value;
+    }
+
+    public CPF(){
     }
 
     @Override

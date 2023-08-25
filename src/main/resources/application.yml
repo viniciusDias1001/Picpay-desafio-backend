@@ -7,9 +7,10 @@ spring:
     username: root #Seu user
     password: 200622pmr #Sua senha
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
 
   security:
     user:
@@ -22,6 +23,8 @@ spring:
     schemas: db_blank
     user: root #Seu User
     password: 200622pmr #SUA SENHA
+    enabled: true
+    locations: classpath:db/migration
 
 api:
   security:

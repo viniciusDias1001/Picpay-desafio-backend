@@ -1,14 +1,16 @@
 package io.github.apidesafiopicpay.service.dto;
 
+import io.github.apidesafiopicpay.entity.document.Document;
+
 public class RegisterDTO {
 
     private String nomeCompleto;
     private String email;
     private String password;
-    private String document;
+    private Document document;
 
 
-    public RegisterDTO(String nomeCompleto, String email, String password, String document) {
+    public RegisterDTO(String nomeCompleto, String email, String password, Document document) {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.password = password;
@@ -43,11 +45,11 @@ public class RegisterDTO {
         this.password = password;
     }
 
-    public String getDocument() {
+    public Document getDocument() {
         return document;
     }
 
-    public void setDocument(String document) {
+    public void setDocument(Document document) {
         this.document = document;
     }
 }
