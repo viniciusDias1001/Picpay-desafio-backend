@@ -1,6 +1,7 @@
 package io.github.apidesafiopicpay.entity;
 
 import io.github.apidesafiopicpay.entity.document.Document;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,10 +18,9 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(of = "id")
+
+
+@Entity()
 public class User implements UserDetails, Serializable {
 
     @Id
@@ -38,6 +38,17 @@ public class User implements UserDetails, Serializable {
     @CNPJ
     private Document document;
 
+
+    public User() {
+    }
+
+    public User(Long id, String email, String nomeCompleto, String password, Document document) {
+        this.id = id;
+        this.email = email;
+        this.nomeCompleto = nomeCompleto;
+        this.password = password;
+        this.document = document;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -72,5 +83,41 @@ public class User implements UserDetails, Serializable {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
+
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
     }
 }

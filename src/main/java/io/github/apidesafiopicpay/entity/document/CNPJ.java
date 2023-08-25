@@ -4,9 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Data
-@AllArgsConstructor
-@EqualsAndHashCode(of = "value")
+
 public class CNPJ implements Document{
     private String value;
+
+    public CNPJ(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public String getValue() {
+        return value;
+    }
 }
