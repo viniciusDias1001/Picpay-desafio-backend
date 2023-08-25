@@ -14,6 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class UserSecurity implements UserDetails {
+
+    private String nomeCompleto;
     private String password;
     private String email;
 
@@ -25,12 +27,12 @@ public class UserSecurity implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
@@ -50,6 +52,6 @@ public class UserSecurity implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
