@@ -7,14 +7,14 @@ public class RegisterDTO {
     private String nomeCompleto;
     private String email;
     private String password;
-    private Document document;
+    private Document documents;
 
 
-    public RegisterDTO(String nomeCompleto, String email, String password, Document document) {
+    public RegisterDTO(String nomeCompleto, String email, String password, Document documents) {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.password = password;
-        this.document = document;
+        this.documents = documents;
     }
 
 
@@ -46,10 +46,10 @@ public class RegisterDTO {
     }
 
     public Document getDocument() {
-        return document;
+        return documents;
     }
 
-    public void setDocument(Document document) {
-        this.document = document;
+    public void setDocument(Document documents) {
+        this.documents = documents;
     }
 }

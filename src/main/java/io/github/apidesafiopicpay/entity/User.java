@@ -4,9 +4,6 @@ import io.github.apidesafiopicpay.entity.document.Document;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
-import org.hibernate.validator.constraints.br.CNPJ;
-import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,7 +28,7 @@ public class User implements UserDetails, Serializable {
     private String nomeCompleto;
     @NotBlank(message = "password can't be null/blank")
     private String password;
-    @NotBlank(message = "Document can't be null/blank")
+    @Embedded
     private Document document;
 
 
@@ -39,7 +36,6 @@ public class User implements UserDetails, Serializable {
     }
 
     public User( String nomeCompleto, String email, String password, Document document) {
-        this.id = id;
         this.email = email;
         this.nomeCompleto = nomeCompleto;
         this.password = password;

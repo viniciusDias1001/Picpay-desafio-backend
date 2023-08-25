@@ -46,13 +46,13 @@ public class AuthenticationController {
         return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
-    @PostMapping("/new-register")
-    @ResponseStatus(HttpStatus.CREATED)
-    public User register(@RequestBody @Valid RegisterDTO registerDTO){
-            if (registerDTO == null) return (User) ResponseEntity.badRequest();
-            String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.getPassword());
-            User newUser = new User(registerDTO.getNomeCompleto(), registerDTO.getEmail(),encryptedPassword, registerDTO.getDocument());
-            userService.save(newUser);
-            return newUser;
-    }
+//    @PostMapping("/new-register")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public User register(@RequestBody @Valid RegisterDTO registerDTO){
+//            if (registerDTO == null) return (User) ResponseEntity.badRequest();
+//            String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.getPassword());
+//            User newUser = new User(registerDTO.getNomeCompleto(), registerDTO.getEmail(),encryptedPassword, registerDTO.getDocument());
+//            userService.save(newUser);
+//            return newUser;
+//    }
 }
