@@ -1,10 +1,8 @@
 package io.github.apidesafiopicpay.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.github.apidesafiopicpay.entity.document.Document;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -36,7 +34,8 @@ public class User implements UserDetails, Serializable {
     @NotBlank(message = "Document can't be null/blank")
     @CPF
     @CNPJ
-    private String document;
+    @Embedded
+    private Document document;
 
 
     public User() {
@@ -47,7 +46,7 @@ public class User implements UserDetails, Serializable {
         this.email = email;
         this.nomeCompleto = nomeCompleto;
         this.password = password;
-        this.document = document.getValue();
+        this.document = document;
     }
 
     @Override
@@ -113,11 +112,11 @@ public class User implements UserDetails, Serializable {
         this.password = password;
     }
 
-    public String getDocument() {
+    public Document getDocument() {
         return document;
     }
 
-    public void setDocument(String document) {
+    public void setDocument(Document document) {
         this.document = document;
     }
 }

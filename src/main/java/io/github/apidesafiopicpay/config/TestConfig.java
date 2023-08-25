@@ -22,7 +22,7 @@ public class TestConfig implements CommandLineRunner {
         usuarioAnderson.setNomeCompleto("Anderson Alexsandro Soares da Silva");
         usuarioAnderson.setEmail("anderson.silva.04@outlook.com");
         usuarioAnderson.setPassword("123456");
-        usuarioAnderson.setDocument(new CPF("445.997.538.66").getValue());
+        usuarioAnderson.setDocument(new CPF("445.997.538.66"));
 
         userRepository.save(usuarioAnderson);
     }
