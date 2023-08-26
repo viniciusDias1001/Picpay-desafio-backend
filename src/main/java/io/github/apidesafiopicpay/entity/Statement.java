@@ -1,77 +1,89 @@
 package io.github.apidesafiopicpay.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-//@Entity(name = "EXTRATOS")
+//@Entity(name = "STAMENTS")
 public class Statement {
 
-//    private Long id;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "USER_ID")
-//    private User user;
-//
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "extrato")
-//    private List<Transfer> transfers;
-//
-//    private Date dateStament;
-//
-//    public Statement(User user, List<Transfer> transfers, Date dateStament) {
-//        this.user = user;
-//        this.transfers = transfers;
-//        this.dateStament = dateStament;
-//    }
-//
-//    public Statement() {
-//    }
-//
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-//
-//    public List<Transfer> getTransfers() {
-//        return transfers;
-//    }
-//
-//    public void setTransfers(List<Transfer> transfers) {
-//        this.transfers = transfers;
-//    }
-//
-//    public Date getDateStament() {
-//        return dateStament;
-//    }
-//
-//    public void setDateStament(Date dateStament) {
-//        this.dateStament = dateStament;
-//    }
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof Statement statement)) return false;
-//        return Objects.equals(id, statement.id);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id);
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Statement{" +
-//                "user=" + user +
-//                ", transfers=" + transfers +
-//                ", dateStament=" + dateStament +
-//                '}';
-//    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "CONTA_ID")
+    private Account conta;
+
+    @Temporal(TemporalType.DATE)
+    private Date dataInicial;
+
+    @Temporal(TemporalType.DATE)
+    private Date dataFinal;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "extrato")
+    List<Transfer> transferencias;
+
+    public Statement(Account conta, Date dataInicial, Date dataFinal, List<Transfer> transferencias) {
+        this.conta = conta;
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.transferencias = transferencias;
+    }
+
+    public Statement() {
+    }
+
+    public Account getConta() {
+        return conta;
+    }
+
+    public void setConta(Account conta) {
+        this.conta = conta;
+    }
+
+    public Date getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(Date dataFinal) {
+        this.dataFinal = dataFinal;
+    }
+
+    public Date getDataInicial() {
+        return dataInicial;
+    }
+
+    public void setDataInicial(Date dataInicial) {
+        this.dataInicial = dataInicial;
+    }
+
+    public List<Transfer> getTransferencias() {
+        return transferencias;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Statement statement)) return false;
+        return Objects.equals(id, statement.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Statement{" +
+                "id=" + id +
+                ", conta=" + conta +
+                ", dataInicial=" + dataInicial +
+                ", dataFinal=" + dataFinal +
+                ", transferencias=" + transferencias +
+                '}';
+    }
 }

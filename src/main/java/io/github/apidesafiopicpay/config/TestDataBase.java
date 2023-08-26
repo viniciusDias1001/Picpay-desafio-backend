@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class TestConfig implements CommandLineRunner {
+public class TestDataBase implements CommandLineRunner {
 
     @Autowired
     UserRepository userRepository;
