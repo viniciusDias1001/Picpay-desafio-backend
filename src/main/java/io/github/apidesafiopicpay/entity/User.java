@@ -9,13 +9,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 
 
-@Entity()
-@Table(name = "USERS")
+@Entity(name = "USERS")
 public class User implements UserDetails, Serializable {
 
     @Id
@@ -31,6 +31,8 @@ public class User implements UserDetails, Serializable {
     private String password;
     @Embedded
     private Document document;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Account> contas;
 
 
     public User() {
