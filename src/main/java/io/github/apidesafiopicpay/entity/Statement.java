@@ -15,7 +15,7 @@ public class Statement {
 
     @ManyToOne
     @JoinColumn(name = "CONTA_ID")
-    private Account conta;
+    private SimpleAccount conta;
 
     @Temporal(TemporalType.DATE)
     private Date dataInicial;
@@ -26,7 +26,7 @@ public class Statement {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "extrato")
     List<Transfer> transferencias;
 
-    public Statement(Account conta, Date dataInicial, Date dataFinal, List<Transfer> transferencias) {
+    public Statement(SimpleAccount conta, Date dataInicial, Date dataFinal, List<Transfer> transferencias) {
         this.conta = conta;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
@@ -36,11 +36,11 @@ public class Statement {
     public Statement() {
     }
 
-    public Account getConta() {
+    public SimpleAccount getConta() {
         return conta;
     }
 
-    public void setConta(Account conta) {
+    public void setConta(SimpleAccount conta) {
         this.conta = conta;
     }
 

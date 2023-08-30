@@ -9,7 +9,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class User implements UserDetails, Serializable {
     @Embedded
     private Document document;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Account> contas;
+    private List<SimpleAccount> contas;
 
 
     public User() {

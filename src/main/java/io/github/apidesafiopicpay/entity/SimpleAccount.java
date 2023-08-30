@@ -1,5 +1,6 @@
 package io.github.apidesafiopicpay.entity;
 
+import io.github.apidesafiopicpay.entity.interfaces.Account;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -9,7 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "ACCOUNTS")
-public class Account {
+public class SimpleAccount implements Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -17,7 +18,6 @@ public class Account {
     private User user;
     private BigDecimal saldo;
     private BigDecimal credito;
-
     @Temporal(TemporalType.DATE)
     private Date dataCriacao;
 
@@ -26,7 +26,7 @@ public class Account {
     @Transient
     private List<Statement> extratos;
 
-    public Account( User user, BigDecimal saldo, BigDecimal credito, Date dataCriacao, List<Statement> extratos) {
+    public SimpleAccount(User user, BigDecimal saldo, BigDecimal credito, Date dataCriacao, List<Statement> extratos) {
         this.user = user;
         this.saldo = saldo;
         this.credito = credito;
@@ -34,7 +34,7 @@ public class Account {
         this.extratos = extratos;
     }
 
-    public Account() {
+    public SimpleAccount() {
     }
 
     public Long getId() {
@@ -88,8 +88,8 @@ public class Account {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Account account)) return false;
-        return Objects.equals(getId(), account.getId());
+        if (!(o instanceof SimpleAccount simpleAccount)) return false;
+        return Objects.equals(getId(), simpleAccount.getId());
     }
 
     @Override
@@ -106,5 +106,25 @@ public class Account {
                 ", credito=" + credito +
                 ", dataCriacao=" + dataCriacao +
                 '}';
+    }
+
+    @Override
+    public void withdraw() {
+
+    }
+
+    @Override
+    public void transfer() {
+
+    }
+
+    @Override
+    public void deposit() {
+
+    }
+
+    @Override
+    public List<Statement> getStatement() {
+        return null;
     }
 }
