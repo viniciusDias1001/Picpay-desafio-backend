@@ -1,5 +1,7 @@
 package io.github.apidesafiopicpay.entity;
 
+import io.github.apidesafiopicpay.entity.interfaces.Account;
+import io.github.apidesafiopicpay.enums.TransferEnum;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -11,9 +13,16 @@ public class Transfer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private User primaryUser;
-    private User foremUser;
+
+    @ManyToOne
+    private Account sendAccount;
+    @ManyToOne
+    private Account reciveAccount;
+
     private BigDecimal valor;
+
+    @Enumerated(EnumType.STRING)
+    private TransferEnum tipoTranferencia;
 
     @Temporal(TemporalType.DATE)
     private Date date;
@@ -21,9 +30,9 @@ public class Transfer {
     @ManyToOne
     Statement extrato;
 
-    public Transfer(User primaryUser, User foremUser, BigDecimal valor, Statement extrato) {
-        this.primaryUser = primaryUser;
-        this.foremUser = foremUser;
+    public Transfer(Account sendAccount, Account reciveAccount, BigDecimal valor, Statement extrato) {
+        this.sendAccount = sendAccount;
+        this.reciveAccount = reciveAccount;
         this.valor = valor;
         this.extrato = extrato;
     }
@@ -31,20 +40,20 @@ public class Transfer {
     public Transfer() {
     }
 
-    public User getPrimaryUser() {
-        return primaryUser;
+    public Account getSendAccount() {
+        return sendAccount;
     }
 
-    public void setPrimaryUser(User primaryUser) {
-        this.primaryUser = primaryUser;
+    public void setSendAccount(Account sendAccount) {
+        this.sendAccount = sendAccount;
     }
 
-    public User getForemUser() {
-        return foremUser;
+    public Account getReciveAccount() {
+        return reciveAccount;
     }
 
-    public void setForemUser(User foremUser) {
-        this.foremUser = foremUser;
+    public void setReciveAccount(Account reciveAccount) {
+        this.reciveAccount = reciveAccount;
     }
 
     public BigDecimal getValor() {
@@ -79,8 +88,8 @@ public class Transfer {
     public String toString() {
         return "Transfer{" +
                 "id=" + id +
-                ", primaryUser=" + primaryUser +
-                ", foremUser=" + foremUser +
+                ", sanderAccount=" + sendAccount +
+                ", reciverAccount=" + reciveAccount +
                 ", valor=" + valor +
                 ", extrato=" + extrato +
                 '}';
