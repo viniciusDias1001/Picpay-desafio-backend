@@ -1,12 +1,13 @@
 package io.github.apidesafiopicpay.entity;
 
+import io.github.apidesafiopicpay.entity.interfaces.Account;
 import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-@Entity(name = "STAMENTS")
+@Entity(name = "STATEMENTS")
 public class Statement {
 
     @Id
@@ -15,7 +16,7 @@ public class Statement {
 
     @ManyToOne
     @JoinColumn(name = "CONTA_ID")
-    private SimpleAccount conta;
+    private Account conta;
 
     @Temporal(TemporalType.DATE)
     private Date dataInicial;
@@ -28,7 +29,7 @@ public class Statement {
 
 
 
-    public Statement(SimpleAccount conta, Date dataInicial, Date dataFinal, List<Transfer> transferencias) {
+    public Statement(Account conta, Date dataInicial, Date dataFinal, List<Transfer> transferencias) {
         this.conta = conta;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
@@ -38,11 +39,11 @@ public class Statement {
     public Statement() {
     }
 
-    public SimpleAccount getConta() {
+    public Account getConta() {
         return conta;
     }
 
-    public void setConta(SimpleAccount conta) {
+    public void setConta(Account conta) {
         this.conta = conta;
     }
 

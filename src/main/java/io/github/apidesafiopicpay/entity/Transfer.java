@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
-//@Entity(name = "TRANSFERS")
+@Entity(name = "TRANSFERS")
 public class Transfer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,11 +22,12 @@ public class Transfer {
     private BigDecimal valor;
 
     @Enumerated(EnumType.STRING)
-    private TransferEnum tipoTranferencia;
+    private TransferEnum tipoTransferencia;
 
     @Temporal(TemporalType.DATE)
     private Date date;
 
+    @Transient
     @ManyToOne
     Statement extrato;
 
@@ -70,6 +71,22 @@ public class Transfer {
 
     public void setExtrato(Statement extrato) {
         this.extrato = extrato;
+    }
+
+    public TransferEnum getTipoTransferencia() {
+        return tipoTransferencia;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setTipoTransferencia(TransferEnum tipoTransferencia) {
+        this.tipoTransferencia = tipoTransferencia;
     }
 
     @Override

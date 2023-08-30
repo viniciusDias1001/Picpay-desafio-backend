@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost/db_blank?useTimezone=true&serverTimezone=UTC
     username: root #Seu user
-    password: 200622pmr #Sua senha
+    password: eo326623 #Sua senha
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -22,7 +22,7 @@ spring:
     url: jdbc:mysql://localhost:3306/
     schemas: db_blank
     user: root #Seu User
-    password: 200622pmr #SUA SENHA
+    password: eo326623 #SUA SENHA
     locations: classpath:db/migration
 
 api:
