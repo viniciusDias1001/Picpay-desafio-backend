@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-//@Entity(name = "STAMENTS")
+@Entity(name = "STAMENTS")
 public class Statement {
 
     @Id
@@ -25,6 +25,8 @@ public class Statement {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "extrato")
     List<Transfer> transferencias;
+
+
 
     public Statement(SimpleAccount conta, Date dataInicial, Date dataFinal, List<Transfer> transferencias) {
         this.conta = conta;

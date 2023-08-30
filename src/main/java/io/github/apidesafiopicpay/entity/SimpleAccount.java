@@ -21,8 +21,7 @@ public class SimpleAccount implements Account {
     @Temporal(TemporalType.DATE)
     private Date dataCriacao;
 
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "conta")
-    //comentando a relação e escondendo este atributo do JPA
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "conta")
     @Transient
     private List<Statement> extratos;
 

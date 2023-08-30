@@ -6,11 +6,14 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
-//@Entity(name = "TRANSFERS")
+@Entity(name = "TRANSFERS")
 public class Transfer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User primaryUser;
     private User foremUser;
     private BigDecimal valor;
