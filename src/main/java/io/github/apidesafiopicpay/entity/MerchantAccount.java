@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+@Entity(name = "MERCHANT_ACCOUNT")
 public class MerchantAccount implements Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
