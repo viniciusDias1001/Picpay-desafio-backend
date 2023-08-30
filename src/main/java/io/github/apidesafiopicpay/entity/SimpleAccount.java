@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ACCOUNTS")
+@Table(name = "SIMPLE_ACCOUNTS")
 public class SimpleAccount implements Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
